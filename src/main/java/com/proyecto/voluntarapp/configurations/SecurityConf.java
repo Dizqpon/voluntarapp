@@ -9,6 +9,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import com.proyecto.voluntarapp.auth.CustomAuthenticationSuccessHandler;
 import com.proyecto.voluntarapp.jwt.JwtAuthenticationFilter;
 
 import lombok.RequiredArgsConstructor;
@@ -19,6 +20,7 @@ import lombok.RequiredArgsConstructor;
 public class SecurityConf {
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
     private final AuthenticationProvider authProvider;
+    private final CustomAuthenticationSuccessHandler customAuthenticationSuccessHandler;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -36,6 +38,7 @@ public class SecurityConf {
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authProvider)
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
+            .formLogin(formLogin -> formLogin.successHandler(customAuthenticationSuccessHandler))
             .build();
     }
 }

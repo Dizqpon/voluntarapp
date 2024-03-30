@@ -18,8 +18,8 @@
                     <p th:text="${titulo}"></p>
                 </a>
                 <div class="btn-group">
-                    <a th:href="@{/login}" class="btn btn-navegation" aria-current="page">Quiero Ayudar</a>
-                    <a th:href="@{/login}" class="btn btn-navegation">Necesito Ayuda</a>
+                    <a th:href="@{/auth/login}" class="btn btn-navegation" aria-current="page">Quiero Ayudar</a>
+                    <a th:href="@{/auth/login}" class="btn btn-navegation">Necesito Ayuda</a>
                     <!--se le aplicará thymeleaf cuando está la base para que desaparezca cuando no hay nadie conectado-->
                     <a href="/" class = "btn btn-navegation">Cerrar sesión</a>
                 </div>
@@ -40,6 +40,30 @@
                 <a th:href="@{/auth/login}" class="btn btn-transparent btn-lg">Te Ayudo</a>
 
             </div>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Email</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Rol</th>
+                        <th>Phone Number</th>
+                        <th>Comunidad</th>
+                        <th>Tipo de Ayuda</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td th:text="${usuario.email}"></td>
+                        <td th:text="${usuario.nombre}"></td>
+                        <td th:text="${usuario.apellido}"></td>
+                        <td th:text="${usuario.rol}"></td>
+                        <td th:text="${usuario.phonenumber}"></td>
+                        <td th:text="${usuario.comunidad}"></td>
+                        <td th:text="${usuario.tipo_ayuda}"></td>
+                    </tr>
+                </tbody>
+            </table>
         
 
         <!-- Agrega los enlaces a los scripts de Bootstrap al final del cuerpo del documento -->

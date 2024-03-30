@@ -11,6 +11,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import com.proyecto.voluntarapp.auth.CustomAuthenticationSuccessHandler;
 import com.proyecto.voluntarapp.repositories.UsuarioRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -24,6 +25,11 @@ public class AppConf {
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
         return config.getAuthenticationManager();
+    }
+
+    @Bean
+    public CustomAuthenticationSuccessHandler customAuthenticationSuccessHandler() {
+        return new CustomAuthenticationSuccessHandler();
     }
 
     @Bean

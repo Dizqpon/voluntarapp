@@ -36,4 +36,13 @@ public class IndexController {
         return "register";
     }
 
+    @GetMapping("/voluntario/index")
+    public String getIndexVol() {
+        return "voluntario/index";
+    }
+    
+    @GetMapping("/necesitado/index")
+    public String getIndexNec() {
+        return "necesitado/index";
+    }
 }

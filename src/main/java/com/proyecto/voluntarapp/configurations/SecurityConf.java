@@ -2,7 +2,6 @@ package com.proyecto.voluntarapp.configurations;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.access.prepost.PostAuthorize;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -28,6 +27,9 @@ public class SecurityConf {
             .authorizeHttpRequests(authRequest ->
                 authRequest
                     .requestMatchers("/auth/**", "/", "/index.html", "/css/**", "/js/**", "/images/**").permitAll()
+                    .requestMatchers("/**").hasRole("ADMIN")
+                    .requestMatchers("/voluntario/**").hasRole("VOLUNTARIO")
+                    .requestMatchers("/necesitado/**").hasRole("NECESITADO")
                     .anyRequest().authenticated())
             .sessionManagement(sessionManager ->
                 sessionManager

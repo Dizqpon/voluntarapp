@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" media="screen" />
+    <link th:href="@{/css/styles.css}" rel="stylesheet" media="screen"/>
+    <title th:text="${titulo}"></title>
+    
+
+</head>
+<body class="bg-img">
+    
+        <nav class="navbar">
+            <div class="container-fluid">
+                <a class="navbar-brand" th:href="@{/}">
+                    <img th:src="@{/images/logo5.jpg}" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+                    <p th:text="${titulo}"></p>
+                </a>
+                <div class="btn-group">
+                    <a th:href="@{/login}" class="btn btn-navegation" aria-current="page">Quiero Ayudar</a>
+                    <a th:href="@{/login}" class="btn btn-navegation">Necesito Ayuda</a>
+                    <!--se le aplicará thymeleaf cuando está la base para que desaparezca cuando no hay nadie conectado-->
+                    <a href="/" class = "btn btn-navegation">Cerrar sesión</a>
+                </div>
+            </div>
+        </nav>
+        <div class = "content">
+            <h1><b>Conecta con la bondad</b></h1>
+            <h3>Juntos podemos transformar vidas.Únete a nuestra comunidad solidaria ahora.</h3>
+            
+
+            <div class="card text-center custom-card">
+                <div class="card-body">
+                    <p class="card-text">Bienvenido a VoluntaRAPP, la plataforma que conecta a personas que necesitan ayuda con voluntarios dispuestos a brindar su apoyo. Ya sea que necesites ayuda con tareas diarias o estés listo para ofrecer tu tiempo y habilidades, VoluntaRAPP está aquí para conectar a la comunidad y hacer que el mundo sea un lugar mejor. <a href = "formulario-de-registro-comun.html">Regístrate ahora</a> para unirte a nuestra red de solidaridad y hacer una diferencia en la vida de alguien hoy mismo. ¡Únete a nosotros y comienza a marcar la diferencia!</p>
+                </div>
+            </div>
+            <div class="text-center mt-3"> <!-- Contenedor de los botones con margen superior -->
+                <a th:href="@{/auth/login}" class="btn btn-transparent btn-lg">Solicito Ayuda</a>
+                <a th:href="@{/auth/login}" class="btn btn-transparent btn-lg">Te Ayudo</a>
+
+            </div>
+        
+
+        <!-- Agrega los enlaces a los scripts de Bootstrap al final del cuerpo del documento -->
+        <script th:src="@{/js/bootstrap.min.js}"></script>
+        </div>
+        
+</body>
+
+</html>

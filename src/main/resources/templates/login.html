@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" media="screen" />
+    <link th:href="@{/css/styles.css}" rel="stylesheet" media="screen" />
+    <title th:text="${titulo}"></title>
+</head>
+<body class="bg-form">
+    <nav class="navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand" th:href="@{/}">
+                <img th:src="@{/images/logo5.jpg}" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+                <p th:text="${titulo}"></p>
+            </a>
+
+        </div>
+    </nav>
+    <div class="align-items-center" style="height: calc(100vh - 56px);">
+        <div class="text-center">
+            <h4>Entrar en Perfil de Usuario</h4>
+            <div class="linea-negra">
+                <hr>
+            </div>
+            <div class="formulario card mx-auto " style="width: 300px;">
+                <div class="card-body">
+
+                    <form th:action="@{/auth/login}" method="post">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+
+
+                            <input type="email" class="form-control" id="email" name="email"
+                                aria-describedby="emailHelp">
+
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" id="password" name="password">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Conectar</button>
+                    </form>
+
+                </div>
+            </div>
+            <div><br>
+                <p>No tengo cuenta, <a th:href="@{/auth/register}">regístrame</a></p>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Agrega los enlaces a los scripts de Bootstrap al final del cuerpo del documento -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </div>
+</body>
+
+</html>

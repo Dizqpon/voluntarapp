@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RestController;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 
@@ -13,11 +14,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 @RequestMapping("/api")
 @RequiredArgsConstructor
 public class AppController {
-    @PostMapping(value = "index_nec")
+
+    @GetMapping("/index_nec")
     public String index_nec() {
         //TODO: process POST request
         
-        return "Hola desde el index Necesitado";
+        return "index";
     }
     @PostMapping("/index_vol")
     public String index_vol() {

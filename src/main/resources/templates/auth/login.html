@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,11 +8,13 @@
     <link th:href="@{/css/styles.css}" rel="stylesheet" media="screen" />
     <title th:text="${titulo}"></title>
 </head>
+
 <body class="bg-form">
     <nav class="navbar">
         <div class="container-fluid">
             <a class="navbar-brand" th:href="@{/}">
-                <img th:src="@{/images/logo5.jpg}" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+                <img th:src="@{/images/logo5.jpg}" alt="Logo" width="30" height="24"
+                    class="d-inline-block align-text-top">
                 <p th:text="${titulo}"></p>
             </a>
 
@@ -26,7 +29,7 @@
             <div class="formulario card mx-auto " style="width: 300px;">
                 <div class="card-body">
 
-                    <form th:action="@{/auth/login}" th:method="post">
+                    <form th:action="@{/auth/login}" method="post">
                         <div class="mb-3">
                             <label for="email" class="form-label">Email</label>
 
@@ -54,6 +57,9 @@
 
 
     <!-- Agrega los enlaces a los scripts de Bootstrap al final del cuerpo del documento -->
+    <script th:if="${redirectUrl != null}">
+        window.location.href = '';
+    </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

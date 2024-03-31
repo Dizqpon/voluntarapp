@@ -11,4 +11,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class AuthResponse {
     String token;
+
+    String redirectUrl;
+
+    public AuthResponse(String token) {
+        this.token = token;
+    }
+    public void setRedirectUrl(String redirectUrl) {
+        this.redirectUrl = redirectUrl;
+    }
 }
